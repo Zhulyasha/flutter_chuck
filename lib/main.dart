@@ -2,10 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chuck/model/chuck_joke.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+// SpinKitFadingCircle spinkit = SpinKitFadingCircle(
+//   itemBuilder: (BuildContext context, int index) {
+//     return DecoratedBox(
+//       decoration: BoxDecoration(
+//         color: index.isEven ? Colors.red : Colors.green,
+//       ),
+//     );
+//   },
+// );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -36,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void getJokeUpdateUi() async {
     ChuckJoke chuckJoke = await getJoke();
+    // spinkit = SpinKitFadingCircle((await getJoke()) as SpinKitRotatingCircle);
 
     setState(() {
       defaultChuckJoke.imageUrl = chuckJoke.imageUrl;
